@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<div class="container">
 
-<body>
-    <h1>Project list View</h1>
-</body>
+    <div class="noproject-wrapper center">
+        <h3 class="grey-text">No projects added yet</h3>
+        <a href="#" class="btn-large green darken-2">
+            <i class="material-icons white-text left">add_circle</i>
+            <span class="bold">ADD PROJECT</span>
+        </a>
+    </div>
 
-</html>
+</div>
+
+{% endblock content %}

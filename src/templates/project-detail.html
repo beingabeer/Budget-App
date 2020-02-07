@@ -1,15 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<div class="container">
+    <section class="section section-stats"></section>
+    <div class="row">
 
-<body>
-    <h1>Project Detail View</h1>
-</body>
+        <div class="col s12 m12 l4">
+            <div class="card-panel">
+                <h6 class="bold">Total Budget</h6>
+                <h1 class="bold">$3000</h1>
+            </div>
+        </div>
 
-</html>
+        <div class="col s12 m6 l4">
+            <div class="card-panel">
+                <h6 class="bold">Total Budget</h6>
+                <h1 class="bold">$3000</h1>
+            </div>
+        </div>
+
+        <div class="col s12 m6 l4">
+            <div class="card-panel">
+                <h6 class="bold">Total Budget</h6>
+                <h1 class="bold">$3000</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
