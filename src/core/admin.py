@@ -17,10 +17,10 @@ class ExpenseModelAdmin(admin.ModelAdmin):
 
 
 class CategoryModelAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Category._meta.fields if field.name != "id"]
+    list_display = ["name"]
 
     class Meta:
-        model = Project
+        model = Category
 
 
 admin.site.register(Project, ProjectModelAdmin)

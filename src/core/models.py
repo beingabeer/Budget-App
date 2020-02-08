@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 from django.db.models.signals import pre_save
 
 
@@ -10,6 +11,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"slug": self.slug})
 
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(self.name)
