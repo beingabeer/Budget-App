@@ -2,13 +2,25 @@ from django.shortcuts import render, get_object_or_404
 from .models import Project, Expense, Category
 from django.views.generic import CreateView
 from django.http import HttpResponseRedirect, HttpResponse
+from django.views.generic import ListView
 from .forms import ExpenseForm
 import json
 
 
-def project_list(request):
-    project_list = Project.objects.all()
-    return render(request, "project-list.html", {"project_list": project_list})
+class ProjectListView(ListView):
+    model = Project
+    template_name = "project-list.html"
+    context_object_name = "project_list"
+    ordering = ["-id"]
+
+    # def get_queryset(self):
+    #     return Project.objects.all()
+
+
+# function based list view
+# def project_list(request):
+#     project_list = Project.objects.all()
+#     return render(request, "project-list.html", {"project_list": project_list})
 
 
 def project_detail(request, slug):
