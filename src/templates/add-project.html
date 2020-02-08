@@ -5,7 +5,9 @@
 <div class="container">
     <form method="POST">
         {% csrf_token %}
-        {{ form }}
+        <div style="margin-top: 100px;">
+            {{ form }}
+        </div>
         <label for="categoryInput">Expense Categores (hit enter after every category)</label>
         <input type="text" name="categoryInput" id="categoryInput">
         <input type="hidden" name="categoriesString">

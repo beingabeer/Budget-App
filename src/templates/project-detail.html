@@ -2,9 +2,14 @@
 {% load static %}
 {% block content %}
 
+
+
 <div class="container">
+
+    <h1 style="color: #fffffe;">{{ project.name }}</h1>
+    <hr>
     <section class="section section-stats">
-        <div class="row">
+        <div class="row" style="color: #fffffe;">
 
             <div class="col s12 m12 l4">
                 <div class="card-panel">
@@ -38,8 +43,9 @@
 
     <section class="section section-expenses">
         <div class="row">
-            <button class="btn waves-effect right modal-trigger" href="#expenseModal">
-                <i class="material-icons white-text left">add_circle</i>
+            <button style="margin-bottom: 5px;background-color: #7f5af0;"
+                class="btn-large waves-effect right modal-trigger" href="#expenseModal">
+                <i class="material-icons md-30 white-text left">add_circle</i>
                 Add Expense
             </button>
         </div>
@@ -48,14 +54,14 @@
             {% for expense in expense_list %}
             <li>
                 <div class="card-panel z-depth-0 expense">
-                    <div class="row">
+                    <div class="row" style="color: #fffffe">
 
                         <div class="col l6">
-                            <span class="title">{{ expense.title }}</span>
+                            <span class="title bold">{{ expense.title }}</span>
                         </div>
 
                         <div class="col l3">
-                            <span class="title">${{ expense.amount }}</span>
+                            <span class="title bold">${{ expense.amount }}</span>
                         </div>
 
                         <div class="col l">
@@ -63,7 +69,7 @@
                         </div>
 
                         <a onclick="deleteExpense(this)" data-id="{{ expense.id }}">
-                            <i class="material-icons red-text right">cancel</i></a>
+                            <i class="material-icons md-30 red-text right">cancel</i></a>
 
                     </div>
                 </div>
