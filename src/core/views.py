@@ -3,6 +3,7 @@ from .models import Project, Expense, Category
 from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from .forms import ExpenseForm
+import json
 
 
 def project_list(request):
@@ -38,6 +39,13 @@ def project_detail(request, slug):
             Expense.objects.create(
                 project=project, title=title, amount=amount, category=category
             ).save()
+
+    elif request.method == "DELETE":
+        id = json.loads(request.body)["id"]
+        expense = Expense.objects.get(id=id)
+        expense.delete()
+
+        return HttpResponse("")
 
     return HttpResponseRedirect(slug)
 

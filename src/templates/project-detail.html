@@ -56,9 +56,8 @@
                             <span class="title bold">{{ expense.category.name }}</span>
                         </div>
 
-                        <a href="">
-                            <i class="material-icons red-text right">close</i>
-                        </a>
+                        <a onclick="deleteExpense(this)" data-id="{{ expense.id }}">
+                            <i class="material-icons red-text right">cancel</i></a>
 
                     </div>
                 </div>
@@ -100,6 +99,27 @@
 
     var elem = document.querySelector('select')
     var instance = M.FormSelect.init(elem)
+
+    function deleteExpense(e) {
+
+        let id = e.dataset.id
+        e.closest('li').remove()
+
+        fetch('', {
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+                'id': id
+            }),
+            credentials: 'same-origin',
+        })
+    }
+
+
+
+
 </script>
 
 {% endblock content %}
