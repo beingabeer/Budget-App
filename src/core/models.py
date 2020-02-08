@@ -15,6 +15,18 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse("detail", kwargs={"slug": self.slug})
 
+    def budget_left(self):
+        expense_list = Expense.objects.filter(project=self)
+        total_expense_amount = 0
+        for expense in expense_list:
+            total_expense_amount += expense.amount
+
+        return self.budget - total_expense_amount
+
+    def total_transactions(self):
+        expense_list = Expense.objects.filter(project=self)
+        return expense_list.count()
+
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(self.name)
     #     super(Project, self).save(*args, **kwargs)
@@ -35,6 +47,9 @@ class Expense(models.Model):
     title = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ("-id",)
 
     def __str__(self):
         return self.title

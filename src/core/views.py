@@ -7,7 +7,8 @@ import json
 
 
 def project_list(request):
-    return render(request, "project-list.html")
+    project_list = Project.objects.all()
+    return render(request, "project-list.html", {"project_list": project_list})
 
 
 def project_detail(request, slug):
