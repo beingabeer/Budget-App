@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Project, Expense, Category
 from django.views.generic import CreateView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import ExpenseForm
 import json
 
