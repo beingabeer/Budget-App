@@ -1,5 +1,3 @@
-## Budget-App
-
 ## Overview
 A Budget Tracking application built in Django
 
