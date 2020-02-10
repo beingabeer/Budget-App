@@ -11,6 +11,6 @@ To get started, create an acount. Then click on the 'Add Project' button to crea
 ## Add Expensed by clicking on the 'Add Expense' button
 Users have the ability to add, update or delete their own expeses.
 
-![]()
+![](https://github.com/beingabeer/Budget-App/blob/master/src/budget-detail.png)
 
 
