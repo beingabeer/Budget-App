@@ -1,4 +1,4 @@
-static_in_env
+
 env
 .env
 *.pyc
