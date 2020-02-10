@@ -1,6 +1,21 @@
 ## Overview
 A Budget Tracking application built in Django
 
+Clone and Install dependencies:
+
+```
+python3 -m pip3 install -r requirements.txt
+```
+
+then run following commands:
+
+```
+python3 manage.py createsuperuser
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
+```
+
 ## How does it work?
 To get started, create an acount. Then click on the 'Add Project' button to create an expense project. All user projects are listed out on the home page.
 
