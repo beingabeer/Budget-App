@@ -17,7 +17,7 @@ class ExpenseModelAdmin(admin.ModelAdmin):
 
 
 class CategoryModelAdmin(admin.ModelAdmin):
-    list_display = ["name"]
+    list_display = [field.name for field in Category._meta.fields if field.name != "id"]
 
     class Meta:
         model = Category

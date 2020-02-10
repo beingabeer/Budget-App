@@ -4,17 +4,29 @@
 
 <div class="container">
 
-    <h2 style="color: #fffffe;">My Expenses</h2>
+    <h2 style="color: #fffffe;">{{ user.get_username }}'s expenses <a href="{% url 'add' %}"
+            class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a></h2>
     <hr>
 
     <div class="row">
         {% for project in project_list %}
         <div class="col s12 md6 xl3">
-            <a href="{% url 'detail' project.slug %}">
-                <div class="card-panel">
-                    <h5 style="color: #fffffe; text-align: center;">{{ project.name }}</h5>
-                </div>
-            </a>
+            <div class="outer">
+                <a href="{% url 'detail' project.slug %}">
+                    <div class="card-panel">
+                        <div class="card-content white-text bold" style="color: #fffffe;font-size: 20px;">
+                            {{ project.name }}
+
+                        </div>
+                        <hr class="style1">
+                        <div class="inner">
+                            <span><a href="#"><i style="margin-right: 10px;"
+                                        class="material-icons md-30 white-text">star</i></a></span>
+                            <span><a href="#"><i class="material-icons md-30 white-text">delete</i></a></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
         {% empty %}
         <div class="noproject-wrapper center">
@@ -26,8 +38,11 @@
         </div>
         {% endfor %}
     </div>
-
-
 </div>
 
 {% endblock content %}
+<a href="{% url 'detail' project.slug %}"></a>
+<div class="card-panel">
+    <h5 style="color: #fffffe; text-align: center;">{{ project.name }}</h5>
+</div>
+</a>

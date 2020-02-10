@@ -45,9 +45,9 @@ def project_detail(request, slug):
         if form.is_valid():
             title = form.cleaned_data["title"]
             amount = form.cleaned_data["amount"]
-            category_name = form.cleaned_data["category"]
+            name = form.cleaned_data["category"]
 
-            category = get_object_or_404(Category, project=project, name=category_name)
+            category = get_object_or_404(Category, project=project, name=name)
 
             Expense.objects.create(
                 project=project, title=title, amount=amount, category=category

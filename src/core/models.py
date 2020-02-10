@@ -2,12 +2,16 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.db.models.signals import pre_save
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Project(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     budget = models.IntegerField()
+    date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name

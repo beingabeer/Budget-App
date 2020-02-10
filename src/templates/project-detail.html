@@ -2,24 +2,24 @@
 {% load static %}
 {% block content %}
 
-
-
 <div class="container">
-
-    <h1 style="color: #fffffe;">{{ project.name }}</h1>
+    <h1 style="color: #fffffe;margin-bottom: 0;">{{ project.name }} <span style="color: #fffffe;font-size: 14px;"
+            class="text-muted">created on
+            {{ project.date_created|date:'F d, Y' }}</span><a style="margin-top: 50px;"
+            class="btn-small waves-effect bold right" href="{% url 'list' %}">All Projects</a></h1>
     <hr>
     <section class="section section-stats">
         <div class="row" style="color: #fffffe;">
 
             <div class="col s12 m12 l4">
-                <div class="card-panel">
+                <div class="card-panel" style="white-space: nowrap;overflow: hidden;">
                     <h6 class="bold">Total Budget</h6>
                     <h1 class="bold">${{ project.budget }}</h1>
                 </div>
             </div>
 
             <div class="col s12 m6 l4">
-                <div class="card-panel">
+                <div class="card-panel" style="white-space: nowrap;overflow: hidden;">
                     <h6 class="bold">Budget Left</h6>
                     {% if project.budget_left > 0 %}
                     <h1 class="bold green-text">${{ project.budget_left }}</h1>
@@ -43,7 +43,7 @@
 
     <section class="section section-expenses">
         <div class="row">
-            <button style="margin-bottom: 5px;background-color: #7f5af0;"
+            <button style="margin-bottom: 5px;background-color: #7f5af0;margin-right: 14px;"
                 class="btn-large waves-effect right modal-trigger" href="#expenseModal">
                 <i class="material-icons md-30 white-text left">add_circle</i>
                 Add Expense
@@ -84,13 +84,13 @@
 
 <div id="expenseModal" class="modal">
     <div class="modal-content">
-        <h4>Add Expense</h4>
+        <h4 style="color: whitesmoke;">Add Expense</h4>
 
         <form method="POST">
             {% csrf_token %}
             <label for="title">Title</label>
             <input name="title" id="title">
-
+            {{form.errors.title}}
             <label for="amount">Amount</label>
             <input name="amount" id="amount">
 
