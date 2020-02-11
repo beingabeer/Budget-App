@@ -1,4 +1,5 @@
 from .base import *
+import sys
 
 DEBUG = True
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
@@ -46,3 +47,7 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
+
+
+TESTING_MODE = "test" in sys.argv
+
