@@ -7,6 +7,8 @@ Clone and Install dependencies:
 python3 -m pip3 install -r requirements.txt
 ```
 
+In settings/base.py -> set a secret key
+
 then run following commands:
 
 ```
