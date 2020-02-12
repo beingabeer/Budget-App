@@ -14,6 +14,6 @@ class TestUrls(SimpleTestCase):
 
     def test_project_detail_url_resolves(self):
         url = reverse("detail", args=["some-slug-here"])
-        print(resolve(url))
+        # print(resolve(url))
         self.assertEquals(resolve(url).func, project_detail)
 
