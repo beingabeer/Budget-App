@@ -109,7 +109,7 @@ hr.style1{
 
 .outer {
   position: relative;
-  background-color: red;
+  background-color: black;
 }
 
 .outer > a {
