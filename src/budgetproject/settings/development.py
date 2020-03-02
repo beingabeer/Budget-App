@@ -1,8 +1,14 @@
 from .base import *
 import sys
 
-DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+# DEBUG =
+DEBUG = int(os.environ.get("DEBUG", default=0))
+
+
+# ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+# 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
+# For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
 INSTALLED_APPS += [
