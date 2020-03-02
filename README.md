@@ -1,7 +1,7 @@
 ## Overview
 A Budget Tracking application built in Django
 
-Clone and add the following to a .env.dev file in the root directory:
+Clone and add the following to a '.env.dev' file in the root directory:
 
 ```
 DEBUG=1
