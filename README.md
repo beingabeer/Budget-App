@@ -1,21 +1,32 @@
 ## Overview
 A Budget Tracking application built in Django
 
-Clone and Install dependencies:
+Clone and add the following to a .env.dev file in the root directory:
 
 ```
-python3 -m pip3 install -r requirements.txt
+DEBUG=1
+SECRET_KEY=foo
+DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
 ```
 
-In settings/base.py -> set a secret key
-
-then run following commands:
+Build the docker image:
 
 ```
-python3 manage.py createsuperuser
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3 manage.py runserver
+docker-compose build
+```
+
+then run the following commands:
+
+```
+docker-compose exec web python manage.py createsuperuser
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate
+```
+
+Finally run the container:
+
+```
+docker-compose up -d
 ```
 
 ## How does it work?
