@@ -9,10 +9,11 @@ SECRET_KEY=foo
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
 ```
 
-Build the docker image:
+Build the docker image and run the container:
 
 ```
 docker-compose build
+docker-compose up -d
 ```
 
 then run the following commands:
@@ -21,12 +22,6 @@ then run the following commands:
 docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
-```
-
-Finally run the container:
-
-```
-docker-compose up -d
 ```
 
 ## How does it work?
