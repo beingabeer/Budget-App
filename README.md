@@ -19,9 +19,9 @@ docker-compose up -d
 then run the following commands:
 
 ```
-docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
+docker-compose exec web python manage.py createsuperuser
 ```
 
 ## How does it work?
